@@ -8,6 +8,7 @@ var config = require("./config"),
   bodyParser = require("body-parser"),
   methodOverride = require("method-override"),
   session = require("express-session");
+const graphqlHttp = require('express-graphql').graphqlHTTP;
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
@@ -56,6 +57,15 @@ module.exports = function () {
       secret: config.sessionSecret,
     })
   );
+
+  const schema = require('../app/graphql/schema/index')
+  const resolver = require('../app/graphql/resolvers/index')
+
+  app.use('/graphql', graphqlHttp({
+    schema: schema,
+    rootValue: resolver,
+    graphiql: true
+  }))
   //Configure Express to use EJS module as the default template engine
   // Set the application view engine and 'views' folder
   app.set("views", "./app/views");

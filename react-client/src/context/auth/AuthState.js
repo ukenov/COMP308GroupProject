@@ -48,20 +48,52 @@ const AuthState = props => {
     }
     // Register User
     const register = async formData => {
+        let requestBody = {
+            query: `
+            mutation {
+                createAccount(accountInput: 
+                    {firstName: "${formData.firstName}",
+                    lastName: "${formData.lastName}",
+                    email: "${formData.email}",
+                    password: "${formData.password}",
+                    city: "${formData.city}",
+                    phoneNumber: "${formData.phoneNumber}",
+                    accountType: "${formData.accountType}",
+                    nurseId: "${formData.nurseId}"  
+                    })
+                    {
+                        _id
+                    }
+            }
+            `
+        };
+
         // making post request and sending data, so we need content type to be application/json in header
         const config = {
+            method: 'POST',
+            body: JSON.stringify(requestBody),
             headers: {
                 'Content-Type': 'application/json'
             }
         }
 
         try {
-            const res = await axios.post('http://localhost:3000/api/createAccount', formData, config);
-            console.log(res.data);
-            dispatch({
-                type: REGISTER_SUCCESS,
-                payload: res.data
-            });
+            fetch('http://localhost:3000/graphql', config)
+            .then(res => {
+                if (res.status !== 200 && res.status !== 201) {
+                throw new Error('Failed!');
+                }
+                return res.json();
+            })
+            .then(resData => {
+                console.log(resData);
+
+                dispatch({
+                    type: REGISTER_SUCCESS,
+                    //payload: res.data
+                    payload: resData.data
+                });
+            })
 
             await loadUser();
         } catch (err) {
@@ -75,20 +107,49 @@ const AuthState = props => {
 
     // Login User
     const login = async formData => {
-        const config = {
-            headers: {
-                'Content': 'application/json'
-            }
-        };
+      
+        try {  
+            let requestBody = {
+                query: `
+                  query {
+                    loginUser(email: "${formData.email}", password: "${formData.password}") {
+                      token
+                    }
+                  }
+                `
+            };
+    
+            const config = {
+                method: 'POST',
+                body: JSON.stringify(requestBody),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
 
-        try {
+            /*
+            fetch('http://localhost:3000/graphql', config)
+            .then(res => {
+                if (res.status !== 200 && res.status !== 201) {
+                throw new Error('Failed!');
+                }
+                return res.json();            
+            })
+            .then(resData => {
+                console.log(resData.data.loginUser.token)
+                dispatch({
+                    type: LOGIN_SUCCESS,
+                    payload: resData.data.loginUser.token
+                });
+            })
+            */
             const res = await axios.post('http://localhost:3000/api/signIn', formData, config);
-
+            console.log(res.data);
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data
             });
-
+            
             await loadUser();
         } catch (err) {
             dispatch({

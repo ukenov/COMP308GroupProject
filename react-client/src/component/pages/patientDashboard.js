@@ -47,20 +47,18 @@ const PatientDashboard = (props) => {
             <div className="card-container">
                 <div className="container-fluid">
                     <div className="row justify-content-center row-title">
-                        <h1>Patient <span className="text-primary">Dashboard</span></h1>
+                        <h1>Patient Dashboard</h1>
                     </div>
-                    <div className="row justify-content-end row-padding" style={{marginBottom: "20px"}}>
-                        <button className="btn btn-danger btn-block" onClick={onSendEmergencyAlert}>Send Emergency Alert</button>
-                    </div>
-                    <div className="row justify-content-center row-padding">
-                        <h2>Today's Motivation</h2>
-                    </div>
-                    <div className="row justify-content-end" style={{marginBottom: "20px"}}>
-                        <div className="col-2">
+                    <div className='row'>
+                        <div class="row justify-content-end row-padding float-left" style={{marginBottom: "20px"}}>
+                            <button className="btn btn-danger" onClick={onSendEmergencyAlert}>Send Emergency Alert</button>   
                             <button className="btn btn-warning" onClick={onCheckSymptoms}>Check Symptoms</button>
-                        </div>
-                        <div className="col-2">
                             <button className="btn btn-primary" onClick={onAddVitalSigns}>Add VitalSigns</button>
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div>
+                            <h3>Motivation</h3>
                         </div>
                     </div>
                     {motivationalTip.videoLink !== '' ? (

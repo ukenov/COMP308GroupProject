@@ -53,7 +53,7 @@ const Login = () => {
     return (
         <div className='form-container'>
             <h1>
-                Account <span className="text-primary">Login</span>
+               Login
             </h1>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
@@ -64,7 +64,7 @@ const Login = () => {
                     <label htmlFor="password">Password</label>
                     <input type="password" name="password" value={password} onChange={onChange} required/>
                 </div>
-                <input type="submit" value="Login" className='btn btn-primary btn-block' />
+                <input type="submit" value="Login" className='btn btn-success btn-block' />
             </form>
         </div>
     );
