@@ -21,7 +21,7 @@ const PatientClinicalData = (props) => {
     return (
         <div className="card-clinical" style={{ minWidth: "1000px"}}>
             <div className="row justify-content-center">
-                <h2>Patients <span className="text-primary">Clinical Data</span></h2>
+                <h2>Patients Clinical Data</h2>
             </div>
             <div className="row justify-content-end text-right">
                 <div className="col-3 text-right">

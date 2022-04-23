@@ -20,7 +20,7 @@ const PatientMotivationalTips = (props) => {
     return (
             <div className="card-child">
                     <div className="row justify-content-center">
-                        <h2>Patients <span className="text-primary">Motivational Tip</span></h2>
+                        <h2>Patients Motivational Tip</h2>
                     </div>
                 <div className="row justify-content-end row-padding">
                     <div className="col-5">

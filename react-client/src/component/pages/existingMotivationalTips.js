@@ -76,7 +76,7 @@ const AddExistingPatientMotivationalTip = (props) => {
         <div>
             <div className="card-container">
                 <div className="row justify-content-center">
-                    <h2>Select From <span className="text-primary">Existing Motivational Tip</span> for Patient</h2>
+                    <h2>Select From Existing Motivational Tip for Patient</h2>
                 </div>
                 <Form className="register-form" onSubmit={handleOnSubmit}>
                     <Form.Group controlId="age">

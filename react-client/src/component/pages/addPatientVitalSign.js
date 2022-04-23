@@ -53,7 +53,7 @@ const AddPatientVitalSign = (props) => {
         <div>
             <div className="card-container">
                 <div className="row justify-content-center">
-                    <h2><span className="text-primary">Add Vital Sign</span> for Patient</h2>
+                    <h2>Add Vital Sign</h2>
                 </div>
                 <Form className="register-form" onSubmit={handleOnSubmit}>
                     <Form.Group controlId="pulseRate">

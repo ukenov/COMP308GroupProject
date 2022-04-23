@@ -12,7 +12,7 @@ const PatientEmergencyAlerts = (props) => {
     return (
         <div className="card-child" style={{width: "100%"}}>
             <div className="row justify-content-center">
-                <h2>Patients <span className="text-danger">Emergency Alerts</span></h2>
+                <h2><span className="text-danger">Patients Emergency Alerts</span></h2>
             </div>
             {props.emergencyAlerts && props.emergencyAlerts.length !== 0 ? (
                 <div className="row justify-content-center row-padding">

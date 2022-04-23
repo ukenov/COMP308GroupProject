@@ -81,7 +81,7 @@ const AddPatientClinicalData = (props) => {
         <div>
             <div className="card-container">
                 <div className="row justify-content-center">
-                <h2><span className="text-primary">Add Clinical Data</span> for Patient</h2>
+                <h2>Add Clinical Data</h2>
                 </div>
                 <div className="row justify-content-center">
                 <Form className="register-form" onSubmit={handleOnSubmit} style={{width: "30%"}}>

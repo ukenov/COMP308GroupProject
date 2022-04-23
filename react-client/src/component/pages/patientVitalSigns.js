@@ -16,7 +16,7 @@ const PatientVitalSigns = (props) => {
     return (
         <div className="card-child">
             <div className="row justify-content-center">
-                <h2>Patients <span className="text-primary">Vital Signs</span></h2>
+                <h2>Patients Vital Signs</h2>
             </div>
             <div className="row justify-content-end row-padding">
                     <button className="btn btn-primary" onClick={onAddNewClick}>Add New</button>

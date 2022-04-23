@@ -33,10 +33,10 @@ const NurseDashboard = (props) => {
         <div>
             <div className="card-container container-fluid">
                 <div className="row justify-content-center row-title">
-                    <h1>Nurse <span className="text-primary">Dashboard</span></h1>
+                    <h1>Nurse Dashboard </h1>
                 </div>
                     <div className="row justify-content-center row-padding">
-                        <h2>Patients <span className="text-primary">List</span></h2>
+                        <h2>Patients List</h2>
                     </div>
                     <div className="row justify-content-center row-padding">
                         <div className="col-auto">
